@@ -2,6 +2,12 @@
 Challenge 2: Create 2 methods that are:
 • push (insert a element to the top of the stack)
 • pop (remove a element from the top of the stack)
+
+ * Challenge 3: Create 3 additional methods that are:
+• peek (retrieves the element at the top of the stack, WITHOUT removing it)
+• isEmpty (checks if the stack is empty – should return true or false)
+o hint - what property of the stack can you use to build this method?
+• printStack (prints the elements in the stack)
 **/
 
 class Node {
@@ -44,4 +50,30 @@ class Stack {
     this.size--;
     return removedNode;
   }
+
+  peek(){ // retrieves the element at the top of the stack, WITHOUT removing it
+    if(!this.size){
+        return;
+    } else{
+        return this.top;
+    }
+  } 
+
+  isEmpty(){ // checks if the stack is empty – should return true or false
+    if(this.size === 0){
+        return true;
+    }
+    return false;
+  } 
+
+  printStack(){ // prints the elements in the stack
+    if(!this.size){
+        console.log('This stack is empty')
+    }else{
+        console.log(this);
+    }
+  } 
+  
 }
+
+
