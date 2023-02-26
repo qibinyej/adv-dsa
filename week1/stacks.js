@@ -60,20 +60,24 @@ class Stack {
   } 
 
   isEmpty(){ // checks if the stack is empty – should return true or false
-    if(this.size === 0){
-        return true;
-    }
-    return false;
+   if(this.top === 0) return true;
+    // if(this.size === 0){
+    //     return true;
+    // }else{
+    //     return false};
   } 
 
-  printStack(){ // prints the elements in the stack
-    if(!this.size){
-        console.log('This stack is empty')
-    }else{
-        console.log(this);
-    }
-  } 
-  
+  printStack(s){ // prints the elements in the stack
+    let s = new Stack()
+    let element = s[s.size-1]
+    while(!s.isEmpty()){
+        s1.push(element)
+        document.write( element + ' ' )
+        s.pop()
+    };
+    return s1;
 }
+}
+
 
 
