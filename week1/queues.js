@@ -13,14 +13,20 @@ o hint - what property of the queue can you use to build this method J?
  */
 
 class Node {
-    constructor(value){
-    }
-    }
-    class Queue {
-    constructor(){
-    }
-    enqueue(val){
-    }
-    dequeue(){
-    }
-    }
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+  
+  enqueue(val) {}
+  dequeue() {}
+}
