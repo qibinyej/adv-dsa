@@ -69,18 +69,21 @@ class Stack {
   } 
 
   printStack(){ // prints the elements in the stack
+    let temp = this.top;
+    let output = " ";
+    
     if(!this.size){
       return
     }else{
-      let temp = this.top;
-      let output = " ";
+      
      // console.log(temp)
       while(temp != null){
        //console.log(temp.value)
-        output += temp.value + ", "
-        console.log(output)
+        output += temp.value
+        //console.log(output)
         temp = temp.next
-        console.log(temp)
+        if(temp != null){output += ' => '}
+       // console.log(temp)
       }
     }
     return output;
