@@ -26,7 +26,23 @@ class Queue {
     this.last = null;
     this.size = 0;
   }
-  
-  enqueue(val) {}
-  dequeue() {}
+
+  enqueue(val) { //add node to the first (think of shift)
+    let newNode = new Node(val)
+    // if queue is empty, first and last node is the newNode
+    if(this.size === 0){
+      this.first = newNode;
+      this.last = newNode;
+    }else{
+      newNode.next = this.first
+      this.first = newNode;
+    }
+  }
+
+  dequeue() { // remove last node (pop)
+    //if size is 0, return null
+    //if size is 1, return original form
+    //else, removedNode === this.last; 
+
+  }
 }
