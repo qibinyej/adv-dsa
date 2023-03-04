@@ -27,7 +27,7 @@ class Queue {
     this.size = 0;
   }
 
-  enqueue(val) { //add node to the first (think of shift)
+  enqueue(val) { //add node to the last (think of shift)
     let newNode = new Node(val)
     // if queue is empty, first and last node is the newNode
     if(this.size === 0){

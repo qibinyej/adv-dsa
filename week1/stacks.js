@@ -30,8 +30,9 @@ class Stack {
         this.top = newNode;
         this.bottom = newNode;
     }else{
-        newNode.next = this.top;
+        let temp = this.top;
         this.top = newNode;
+        this.top.next = temp;
     }
     this.size++;
     return this;
@@ -60,11 +61,7 @@ class Stack {
   } 
 
   isEmpty(){ // checks if the stack is empty – should return true or false
-   if(this.top === 0) return true;
-    // if(this.size === 0){
-    //     return true;
-    // }else{
-    //     return false};
+   if(this.size === 0) return true;
   } 
 
   printStack(s){ // prints the elements in the stack
@@ -76,7 +73,7 @@ class Stack {
         s.pop()
     };
     return s1;
-}
+  }
 }
 
 
