@@ -56,24 +56,36 @@ class Stack {
     if(!this.size){
         return;
     } else{
-        return this.top;
+        return this.top.value;
     }
   } 
 
   isEmpty(){ // checks if the stack is empty – should return true or false
-   if(this.size === 0) return true;
+   if(this.top){
+    return true;
+   } else{
+    return false;
+   }
   } 
 
-  printStack(s){ // prints the elements in the stack
-    let s = new Stack()
-    let element = s[s.size-1]
-    while(!s.isEmpty()){
-        s1.push(element)
-        document.write( element + ' ' )
-        s.pop()
-    };
-    return s1;
+  printStack(){ // prints the elements in the stack
+    if(!this.size){
+      return
+    }else{
+      let temp = this.top;
+      let output = " ";
+     // console.log(temp)
+      while(temp != null){
+       //console.log(temp.value)
+        output += temp.value + ", "
+        console.log(output)
+        temp = temp.next
+        console.log(temp)
+      }
+    }
+    return output;
   }
+
 }
 
 
