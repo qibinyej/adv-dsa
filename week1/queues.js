@@ -34,8 +34,8 @@ class Queue {
       this.first = newNode;
       this.last = newNode;
     }else{
-      newNode.next = this.first
-      this.first = newNode;
+      this.last.next = newNode
+      this.last = newNode;
     }
   }
 
