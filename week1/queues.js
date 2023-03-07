@@ -8,7 +8,7 @@ Challenge 2: Create 2 methods that are:
 Challenge 3: Create 3 additional methods that are:
 • peek (retrieves the element at the start of the queue, WITHOUT removing it)
 • isEmpty (checks if the queue is empty – should return true or false)
-o hint - what property of the queue can you use to build this method J?
+o hint - what property of the queue can you use to build this method?
 • printQueue (prints the elements in the queue)
  */
 
@@ -72,8 +72,23 @@ class Queue {
   
   }
 
-  printQueue(){
-    
+  printQueue(){ //prints the elements in the queue; FIFO
+    let temp = this.first;
+    let output = " ";
+
+    if(!this.size){
+      return -1;
+    }else{
+      while(temp != null){
+        output += temp.value
+        temp = temp.next
+        if(temp != null){
+          output += " => "
+        }
+
+      }
+    }
+    return output
   }
 
 }
