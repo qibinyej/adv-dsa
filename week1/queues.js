@@ -55,8 +55,25 @@ class Queue {
     return removedNode;
   }
 
-  peek()
-  isEmpty()
-  printQueue()
+  peek(){ //retrieves the element at the start of the queue, WITHOUT removing it
+    if(!this.size){
+      return
+    }else{
+      return this.first.value
+    }
+  }
   
+  isEmpty(){ //return true if the queue is empty;
+    if(!this.size) {
+      return true;
+    }else{
+      return false;
+    }
+  
+  }
+
+  printQueue(){
+    
+  }
+
 }
