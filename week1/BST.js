@@ -36,24 +36,27 @@ class Node {
 class BinarySearchTree {
   constructor() {
     this.root = null;
+    this.size = 0;
   }
 
   insert(value) { //inserts a node as a child of the given parent node
     let newNode = new Node(value);
-    if(!this.size) {
+    if(this.root === null) {
       this.root = newNode;
-      return this.size;
+      this.size++;
+      return this;
     }
     let current = this.root;
-    if(value === current.value) return;
+    
     while(true){
+      if(value === current.value) return this.root;
       if(value < current.value){
         if(!current.left){
           current.left = newNode
+          this.size++
           return this;
         }
         current = current.left
-
         // if(!current.left){
         //   current.left = newNode;
         // }else{
@@ -62,12 +65,13 @@ class BinarySearchTree {
       }else{ //value > current.value
         if(!current.right){
           current.right = newNode;
+          this.size++
+          return this;
         }else{
           current = current.right
         }
       }
     }
-    this.size++;
     return this;
   }
 
@@ -87,5 +91,34 @@ class BinarySearchTree {
     return current;
   }
 
-  contains(value) {}
+  contains(value) { //return true/false;
+    if(this.root) return;
+    let current = this.root; 
+    let found = false; //initialize value as false(not yet found)
+    while(current && !found){ //current exits and not yet found
+      if(value < current.value){
+        current = current.left
+      }else if(value > current.value){
+        current = current.right
+      }else{
+        return true;
+      }
+    }
+    return false;
+  }
 }
+
+let tree = new BinarySearchTree();
+tree.insert(10)
+//console.log(tree)
+
+tree.insert(1)
+//console.log(tree)
+
+tree.insert(2)
+//console.log(tree)
+
+tree.insert(4)
+tree.insert(5)
+tree.insert(6)
+console.log(tree)
