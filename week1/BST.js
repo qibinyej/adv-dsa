@@ -27,12 +27,65 @@ Challenge 3: Create 1 additional method that is:
 
 class Node {
   constructor(value) {
-
+    this.value = value;
+    this.left = null;
+    this.right = null;
   }
 }
+
 class BinarySearchTree {
-  constructor() {}
-  insert(value) {}
-  find(value) {}
+  constructor() {
+    this.root = null;
+  }
+
+  insert(value) { //inserts a node as a child of the given parent node
+    let newNode = new Node(value);
+    if(!this.size) {
+      this.root = newNode;
+      return this.size;
+    }
+    let current = this.root;
+    if(value === current.value) return;
+    while(true){
+      if(value < current.value){
+        if(!current.left){
+          current.left = newNode
+          return this;
+        }
+        current = current.left
+
+        // if(!current.left){
+        //   current.left = newNode;
+        // }else{
+        //   current = current.left
+        // }
+      }else{ //value > current.value
+        if(!current.right){
+          current.right = newNode;
+        }else{
+          current = current.right
+        }
+      }
+    }
+    this.size++;
+    return this;
+  }
+
+  find(value) {
+    if(this.root) return;
+    let current = this.root; 
+    let found = false; //initialize value as false(not yet found)
+    while(current && !found){ //current exits and not yet found
+      if(value < current.value){
+        current = current.left
+      }else if(value > current.value){
+        current = current.right
+      }else{
+        found = true;
+      }
+    }
+    return current;
+  }
+
   contains(value) {}
 }
