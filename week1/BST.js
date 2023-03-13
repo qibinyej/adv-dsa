@@ -76,7 +76,7 @@ class BinarySearchTree {
   }
 
   find(value) {
-    if(this.root) return;
+    if(this.root === null) return;
     let current = this.root; 
     let found = false; //initialize value as false(not yet found)
     while(current && !found){ //current exits and not yet found
@@ -105,6 +105,21 @@ class BinarySearchTree {
       }
     }
     return false;
+  }
+
+  remove(){ // removes a node and its children from the BST
+    let current = this.root
+    let found =  this.find(value)
+    if(found === this.root) return this.root === null;
+    if(found < current){
+      current = current.left 
+    } else if(found > current){
+      current = current.right
+    }else{
+      current === null
+    }
+
+    return found;
   }
 }
 
