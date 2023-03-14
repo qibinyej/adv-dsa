@@ -44,7 +44,7 @@ class BinarySearchTree{
         return current;
     } 
 
-    countLeafs(){ //using queue DS 
+    BFSCountLeafs(){ //using queue DS 
         let count = 0;
         let node = this.root;
         let queue = [node];
@@ -63,6 +63,12 @@ class BinarySearchTree{
         }
         return count;
     }
+
+    DFSPreOrderCount(){ //using stack DS
+        
+    }
+
+
 }
 
 var tree = new BinarySearchTree();
@@ -75,4 +81,4 @@ tree.insert(7);
 tree.insert(10);
 tree.insert(14);
 tree.insert(13);
-tree.countLeafs(tree)
+tree.BFSCountLeafs(tree)
