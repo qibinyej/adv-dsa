@@ -23,55 +23,47 @@ class BinarySearchTree{
     insert(value){
         const newNode = new Node(value)
         let current = this.root;
-        if(this.root){
-            return newNode = this.root;
+        if(!this.root){
+            return this.root = newNode;
         }
         while(true){
             if(value === current.value) return;
             if(value < current.value){
                if(!current.left){
-                newNode = current.left;
+                current.left = newNode;
                 } 
                 current = current.left
             }
             if(value > current.value){
                 if(!current.right){
-                    newNode = current.right
+                current.right = newNode;
                 }
                 current = current.right
             }
         }
-        return current
+        return current;
     } 
 
-    BFS(){ //using queue DS 
+    countLeafs(){ //using queue DS 
         let count = 0;
         let node = this.root;
         let queue = [node];
-        let visited =[];
         if(this.root === null) return 0;
-
-        while(true){
+        while(queue.length){
             let node = queue.shift()
-            visited.push(node.value)
+           if(!node.left && !node.right){
+            count += 1;
+            }
             if(node.left){
-               node = node.left
+               queue.push(node.left)
             }
             if(node.right){
-                node = node.right
-            }
-
-            if(!node.left && !node.right){
-                count += 1;
+               queue.push(node.right)
             }
         }
         return count;
     }
-
 }
-
-
-
 
 var tree = new BinarySearchTree();
 tree.insert(8);
