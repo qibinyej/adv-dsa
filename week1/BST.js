@@ -92,7 +92,7 @@ class BinarySearchTree {
   }
 
   contains(value) { //return true/false;
-    if(this.root) return;
+    if(!this.root) return;
     let current = this.root; 
     let found = false; //initialize value as false(not yet found)
     while(current && !found){ //current exits and not yet found
