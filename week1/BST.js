@@ -107,19 +107,19 @@ class BinarySearchTree {
     return false;
   }
 
-  remove(){ // removes a node and its children from the BST
+  remove(node){ // removes a node and its children from the BST
     let current = this.root
-    let found =  this.find(value)
-    if(found === this.root) return this.root === null;
-    if(found < current){
+    let removed =  this.find(node.value)
+    if(removed === this.root) return this.root === null;
+    if(removed < current){
       current = current.left 
-    } else if(found > current){
+    } else if(removed > current){
       current = current.right
     }else{
       current === null
     }
 
-    return found;
+    return removed;
   }
 }
 
