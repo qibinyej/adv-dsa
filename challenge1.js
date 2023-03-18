@@ -106,7 +106,7 @@ class BinarySearchTree{
         //     count+=1
         // }
         traverse(this.root)
-       return count;
+        return count;
     }
 
 
