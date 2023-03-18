@@ -92,13 +92,20 @@ class BinarySearchTree{
     inOrderCountLeafs(){ //using stack DS, LIFO
         let count = 0;
         function traverse(node){
-            // if(node.left){
-            //     traverse(node.left)
-            // }
-            // if(node.right) {
-            //     traverse(node.right)
-            // }
-            // count+=1
+            if(node.left){
+                traverse(node.left)
+            }
+
+            if(node && !node.left && !node.right ){
+                console.log('found leaf at node: ' + node.value)
+                  count++
+                  return
+              }
+
+            if(node.right) {
+                traverse(node.right)
+            }
+           
         }
         traverse(this.root)
        return count;
@@ -106,15 +113,19 @@ class BinarySearchTree{
 
     postOrderCountLeafs(){ //using stack DS, LIFO
         let count = 0;
-        // function traverse(node){
-        //     if(node.left){
-        //         traverse(node.left)
-        //     }
-        //     if(node.right) {
-        //         traverse(node.right)
-        //     }
-        //     count+=1
-        // }
+        function traverse(node){
+            if(node.left){
+                traverse(node.left)
+            }
+            if(node.right) {
+                traverse(node.right)
+            }
+            if(node && !node.left && !node.right ){
+                console.log('found leaf at node: ' + node.value)
+                  count++
+                  return
+              }
+        }
         traverse(this.root)
         return count;
     }
