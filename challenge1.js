@@ -67,13 +67,23 @@ class BinarySearchTree{
     preOrderCountLeafs(){ //using stack DS, LIFO
         let count = 0;
         function traverse(node){
+            console.log(node.value)
+            //handle middle first
+            if(node && !node.left && !node.right ){
+              console.log('found leaf at node: ' + node.value)
+                count++
+                return
+            }
+            //handle left next    
             if(node.left){
+                console.log('going left at node: ' + node.left.value)
                 traverse(node.left)
+            //handle right last
             }
             if(node.right) {
+              console.log('going right at node: ' + node.right.value)
                 traverse(node.right)
             }
-            count+=1
         }
         traverse(this.root)
        return count;
