@@ -44,7 +44,7 @@ class BinarySearchTree{
         return current;
     } 
 
-    BFSCountLeafs(){ //using queue DS 
+    BFSCountLeafs(){ //using queue DS, FIFO 
         let count = 0;
         let node = this.root;
         let queue = [node];
@@ -64,8 +64,49 @@ class BinarySearchTree{
         return count;
     }
 
-    DFSPreOrderCount(){ //using stack DS
-        
+    preOrderCountLeafs(){ //using stack DS, LIFO
+        let count = 0;
+        function traverse(node){
+            if(node.left){
+                traverse(node.left)
+            }
+            if(node.right) {
+                traverse(node.right)
+            }
+            count+=1
+        }
+        traverse(this.root)
+       return count;
+    }
+
+    inOrderCountLeafs(){ //using stack DS, LIFO
+        let count = 0;
+        function traverse(node){
+            // if(node.left){
+            //     traverse(node.left)
+            // }
+            // if(node.right) {
+            //     traverse(node.right)
+            // }
+            // count+=1
+        }
+        traverse(this.root)
+       return count;
+    }
+
+    postOrderCountLeafs(){ //using stack DS, LIFO
+        let count = 0;
+        // function traverse(node){
+        //     if(node.left){
+        //         traverse(node.left)
+        //     }
+        //     if(node.right) {
+        //         traverse(node.right)
+        //     }
+        //     count+=1
+        // }
+        traverse(this.root)
+       return count;
     }
 
 
