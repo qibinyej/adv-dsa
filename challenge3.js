@@ -23,27 +23,36 @@ those connections. Should look like this:
 class Graph{
     constructor(){
         this.adjList = {}; 
+        /** create the empty adjacency list object, {} */
     }
 
     addVertex(v){
-        if(!this.adjlist[v]){
-            this.adjList[v] = []
-        }
+        if(!this.adjlist[v]) this.adjList[v] = []
     }
+
     addEdge(v1, v2){
-
+        if(this.adjList[v1].filter(el => el !== v2)) this.adjList[v1].push(v2) //this.adjList[v1] returns an empty array; array.push() add vertex to the end of v1
+        
+        if(this.adjList[v2].filter(el => el !== v1)) this.adjList[v2].push(v1) //this.adjList[v1] returns an empty array; array.push() add vertex to the end of v2 
     }
-    removeVertex(v){
 
+    removeVertex(v){
     }
     removeEdge(v1, v2){
-
     }
 }
 
-const adjList = new Graph()
+const graph = new Graph()
 
-adjList.addVertex('Tom Brady')
-adjList.addVertex('Tony Kim')
-adjList.addVertex('Patrick Mahomes')
-adjList.addVertex('Lebron James')
+graph.addVertex('Tom Brady')
+graph.addVertex('Tony Kim')
+graph.addVertex('Patrick Mahomes')
+graph.addVertex('Lebron James')
+
+graph.addEdge('Tom Brady', 'Lebron James')
+graph.addEdge('Tom Brady', 'Tony Kim')
+graph.addEdge('Tony Kim', 'Patrick Mahomes')
+graph.addEdge('Patrick Mahomes','Tom Brady')
+
+
+
