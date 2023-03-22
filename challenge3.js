@@ -6,18 +6,6 @@ Create the following methods:
 - addEdge(v1, v2): v1 – first vertex to add, v2 – second vertex to add
 - removeEdge(v1, v2): v1 – first vertex to remove, v2 – second vertex to remove
 - removeVertex(v): v – vertex to remove
-
-Step 1: Seed some data - here is the list of friends and their initial mutual connections:
-- Tom Brady: [‘Lebron James’, ‘Tony Kim’]
-- Tony Kim: [‘Patrick Mahomes’, ‘Lebron James’, ‘Tom Brady’]
-- Patrick Mahomes: [‘Lebron James’]
-- Lebron James: [‘Tom Brady’, ‘Tony Kim’, ‘Patrick Mahomes’]
-
-Step 2: Lebron James no longer wants a account on our platform, go ahead and remove the connection between
-those connections. Should look like this:
-- Tom Brady: [‘Tony Kim’]
-- Tony Kim: [‘Patrick Mahomes’, ‘Tom Brady’]
-- Patrick Mahomes: []
  */
 
 class Graph{
@@ -27,18 +15,21 @@ class Graph{
     }
 
     addVertex(v){
-        if(!this.adjlist[v]) this.adjList[v] = []
+        if(!this.adjList[v]) this.adjList[v] = []
     }
 
     addEdge(v1, v2){
-        if(this.adjList[v1].filter(el => el !== v2)) this.adjList[v1].push(v2) //this.adjList[v1] returns an empty array; array.push() add vertex to the end of v1
-        
-        if(this.adjList[v2].filter(el => el !== v1)) this.adjList[v2].push(v1) //this.adjList[v1] returns an empty array; array.push() add vertex to the end of v2 
+        if(this.adjList[v1].filter(el => el !== v2)) this.adjList[v1].push(v2) 
+        //this.adjList[v1] returns an empty array; array.push() add vertex to the end of v1
+    }
+   
+    removeEdge(v1, v2){
+        this.adjList[v1] = this.adjList[v1].filter(el => el !== v2)
+        this.adjList[v2] = this.adjList[v2].filter(el => el !== v1)
     }
 
     removeVertex(v){
-    }
-    removeEdge(v1, v2){
+        delete this.adjList[v]
     }
 }
 
@@ -49,10 +40,33 @@ graph.addVertex('Tony Kim')
 graph.addVertex('Patrick Mahomes')
 graph.addVertex('Lebron James')
 
+/**
+ * Step 1: Seed some data - here is the list of friends and their initial mutual connections:
+- Tom Brady: [‘Lebron James’, ‘Tony Kim’]
+- Tony Kim: [‘Patrick Mahomes’, ‘Lebron James’, ‘Tom Brady’]
+- Patrick Mahomes: [‘Lebron James’]
+- Lebron James: [‘Tom Brady’, ‘Tony Kim’, ‘Patrick Mahomes’]
+
+ */
 graph.addEdge('Tom Brady', 'Lebron James')
 graph.addEdge('Tom Brady', 'Tony Kim')
 graph.addEdge('Tony Kim', 'Patrick Mahomes')
+graph.addEdge('Tony Kim', 'Lebron James')
+graph.addEdge('Tony Kim', 'Tom Brady')
 graph.addEdge('Patrick Mahomes','Tom Brady')
+graph.addEdge('Lebron James','Tom Brady')
+graph.addEdge('Lebron James','Tony Kim')
+graph.addEdge('Lebron James','Patrick Mahomes')
 
+/**
+ * Step 2: Lebron James no longer wants a account on our platform, go ahead and remove the connection between
+those connections. Should look like this:
+- Tom Brady: [‘Tony Kim’]
+- Tony Kim: [‘Patrick Mahomes’, ‘Tom Brady’]
+- Patrick Mahomes: []
+ */
+graph.removeEdge('Tom Brady', 'Lebron James')
+graph.removeEdge('Tony Kim', 'Lebron James')
+graph.removeEdge('Patrick Mahomes', 'Lebron James')
 
-
+graph.removeVertex('Lebron James')
