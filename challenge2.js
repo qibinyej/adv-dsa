@@ -3,6 +3,6 @@
  */
 
 /**
- * Vertices are nodes that contain values. 
- * Edges are links between vertices and can be weighted or unweighted.   
+ * Vertices are nodes that contain values in Graph DS. 
+ * Edges are links between vertices and can contain weight or no weight.  
  */
