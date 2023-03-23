@@ -29,6 +29,14 @@ class Graph{
     }
 
     removeVertex(v){
+        //while loop to remove vertices in array
+        while(this.adjList[v].length){
+            //remove last element in the array as long as the adjacency list exists
+            let adjVertex = this.adjList[v].pop()
+            //remove edges between two vertcies
+            this.removeEdge(v, adjVertex)
+        }
+        //remove the vertex key and emtpy array
         delete this.adjList[v]
     }
 }
