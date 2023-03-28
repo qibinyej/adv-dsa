@@ -14,7 +14,10 @@ class Graph{
         }
     }
     addEdge(v1, v2){
-        
+        if(this.adjList[v1] && this.adjList[v2]){
+            console.log(this.adjList[v1] = v2)
+            // this.adjList[v2] = v1;
+        }
     }
 
 }
@@ -26,7 +29,7 @@ g.addVertex("3")
 g.addVertex("4")
 g.addVertex("5")
 g.addVertex("6")
-g.addEdge("1","2")
+z
 g.addEdge("1","3")
 g.addEdge("2","4")
 g.addEdge("3","5")
@@ -37,7 +40,7 @@ g.addEdge("5","6")
 // / \
 // 2 3
 // | |
-// 4 --- 5
+// 4 - 5
 // \ /
 // 6
 // RESULT: [1, 3, 5]
