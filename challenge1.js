@@ -3,6 +3,22 @@
 that returns all the odd valued vertices, for example, with the following
  */
 
+class Graph{
+    constructor(){
+        this.adjList = {};
+    }
+
+    addVertex(vertex){
+        if(!this.adjList[vertex]){
+            this.adjList[vertex] = []
+        }
+    }
+    addEdge(v1, v2){
+        
+    }
+
+}
+
 let g = new Graph();
 g.addVertex("1")
 g.addVertex("2")
