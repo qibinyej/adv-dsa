@@ -14,12 +14,32 @@ class Graph{
         }
     }
     addEdge(v1, v2){
-        if(this.adjList[v1] && this.adjList[v2]){
-            console.log(this.adjList[v1] = v2)
-            // this.adjList[v2] = v1;
-        }
+        this.adjList[v1].push(v2)
+        this.adjList[v2].push(v1)
     }
 
+    DFSRecrusive(start){ //take a vertex as a starting point
+        //create a array to hold result values
+        const result = [];
+        //create an obj to hold visited nodes
+        const visited = {};
+        // create a varialbe to hold adjacency list
+        const adjList = this.adjList;
+
+        //create self-invoking function include conditions to traverse: vertex/2 !==0
+        (function dfs(vertex){
+           
+                visited[vertex] = true;
+                if(vertex/2 !==0 ) result.push(vertex)               
+                adjList[vertex].forEach(neighbor => {
+                    if(!visited[neighbor]){
+                        dfs(neighbor)
+                    }
+                })   
+            })(start)
+            
+        return result;
+    }
 }
 
 let g = new Graph();
@@ -29,8 +49,8 @@ g.addVertex("3")
 g.addVertex("4")
 g.addVertex("5")
 g.addVertex("6")
-z
 g.addEdge("1","3")
+g.addEdge("1","2")
 g.addEdge("2","4")
 g.addEdge("3","5")
 g.addEdge("4","5")
