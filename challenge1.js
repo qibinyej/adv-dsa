@@ -19,18 +19,19 @@ class Graph{
     }
 
     DFSRecrusive(start){ //take a vertex as a starting point
-        //create a array to hold result values
+        //create an array to hold result values: odd valued vertices
         const result = [];
-        //create an obj to hold visited nodes
+        //create an obj to hold visited vertices: {key: true}
         const visited = {};
         // create a varialbe to hold adjacency list
         const adjList = this.adjList;
 
         //create self-invoking function include conditions to traverse: vertex/2 !==0
         (function dfs(vertex){
-           
                 visited[vertex] = true;
-                if(vertex/2 !==0 ) result.push(vertex)               
+                if((vertex % 2) !== 0){
+                   result.push(vertex)
+                }              
                 adjList[vertex].forEach(neighbor => {
                     if(!visited[neighbor]){
                         dfs(neighbor)
