@@ -28,17 +28,17 @@ class Graph{
 
         //create self-invoking function include conditions to traverse: vertex/2 !==0
         (function dfs(vertex){
-                visited[vertex] = true;
-                if((vertex % 2) !== 0){
-                   result.push(vertex)
-                }              
-                adjList[vertex].forEach(neighbor => {
-                    if(!visited[neighbor]){
-                        dfs(neighbor)
-                    }
-                })   
-            })(start)
-            
+            if (!adjList[vertex]) return null;
+            visited[vertex] = true;
+            if((vertex % 2) !== 0){
+                result.push(vertex)
+            }              
+            adjList[vertex].forEach(neighbor => {
+                if(!visited[neighbor]){
+                    dfs(neighbor)
+                }
+            })   
+        })(start)
         return result;
     }
 }
