@@ -24,17 +24,17 @@ class Graph{
         const visited = {} 
         const adjList = this.adjList
 
-        let currentVertex; //firs element removed from queue
+        let currentVertex; //first vertex removed from queue
         while(queue.length){
             currentVertex = queue.shift()
             if(currentVertex % 2 === 0 ){
                 result.push(currentVertex)
             }
 
-            adjList[currentVertex].forEach(neighbor => {
-                if(!visited[neighbor]){
+            adjList[currentVertex].forEach(neighbor => { //loop through vertex's values 
+                if(!visited[neighbor]){ //if vertex hasn't visited, add it to visited and assign true value.
                     visited[neighbor] = true;
-                    queue.push(neighbor)
+                    queue.push(neighbor) //then push it into queue
                 }
             });
         }
