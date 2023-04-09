@@ -32,3 +32,30 @@ var climbStairs = function(n) {
     
 
 };
+
+/**
+ * input: n = 1
+ * output: 1
+ * 1. 1 step
+ * 
+ * 
+ * input: n = 2
+ * output: 2
+ * 1. 1 step + 1 step
+   2. 2 steps
+
+   input: n = 3
+   output: 3
+   1. 1 step + 1 step + 1 step
+   2. 1 step + 2 steps
+   3. 2 steps + 1 step
+
+   input: n = 4 
+   output: 5
+   1. 1 step x 4
+   2. 1 step + 1 step + 2 steps
+   3. 1 step + 2 steps + 1 steps
+   4. 2 steps + 1 step + 1 step
+   5. 2 steps + 2 steps
+
+ */
